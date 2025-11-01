@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>주요 비즈니스 및 기술 용어사전</title>
+    <!-- Tailwind CSS CDN 로드 --><script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Inter 폰트를 기본 폰트로 설정 */
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+        body {
+            font-family: 'Inter', sans-serif;
+            /* 배경 이미지 설정 (여기에 원하는 이미지 URL 또는 파일 경로를 넣어주세요) */
+            background-image: url('YOUR_KITAGAWA_MARIN_IMAGE_URL_HERE'); /* 예: 'https://example.com/kitagawa_marin.jpg' 또는 'marin_bg.jpg' */
+            background-size: cover; /* 배경이 화면을 가득 채우도록 */
+            background-position: center; /* 배경 이미지를 중앙에 배치 */
+            background-attachment: fixed; /* 스크롤해도 배경은 고정되도록 */
+            
+            /* 그라데이션 오버레이로 배경에 깊이감과 가독성 부여 */
+            background-blend-mode: overlay; /* 배경 이미지와 그라데이션을 합성 */
+            background-color: #2a0066; /* 기본 배경색 (그라데이션의 한쪽 끝 색상과 유사하게) */
+            /* 배경 위에 그라데이션을 한 겹 더 씌웁니다. 이미지의 선명도를 유지하면서도 텍스트가 잘 보이도록 */
+            position: relative;
+        }
+
+        body::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            /* 멋진 그라데이션 오버레이 */
+            background: linear-gradient(
+                135deg, 
+                rgba(79, 70, 229, 0.4) 0%, /* indigo-600 with transparency */
+                rgba(139, 92, 246, 0.6) 50%, /* violet-500 with transparency */
+                rgba(236, 72, 153, 0.4) 100% /* pink-500 with transparency */
+            );
+            mix-blend-mode: multiply; /* 배경 이미지와 그라데이션을 더 멋지게 혼합 */
+            opacity: 0.8; /* 오버레이의 투명도 조절 */
+            z-index: -1; /* 내용을 가리지 않도록 */
+        }
+
+        /* details 요소 기본 스타일 제거 및 커스터마이징 */
+        details > summary {
+            list-style: none;
+            /* 기본 화살표 대신 Tailwind CSS를 사용하여 아이콘 정의 */
+            position: relative;
+            padding-right: 1.5rem; /* 아이콘 공간 확보 */
+        }
+        details > summary::before {
+            content: ''; /* 기본 마커 제거 */
+        }
+        details > summary::after {
+            content: "▼";
+            position: absolute;
+            right: 0;
+            top: 50%;
+            transform: translateY(-50%) rotate(0deg);
+            transition: transform 0.2s ease-in-out;
+            color: #6366f1; /* indigo-500 */
+            font-size: 0.8em;
+        }
+        details[open] > summary::after {
+            transform: translateY(-50%) rotate(180deg);
+        }
+
+        /* 콘텐츠 영역의 배경을 반투명하게 설정하여 배경 이미지가 비치도록 */
+        .glossary-container {
+            background-color: rgba(255, 255, 255, 0.85); /* 흰색 기반의 반투명 배경 */
+            backdrop-filter: blur(8px); /* 콘텐츠 뒤 배경을 흐리게 하여 가독성 높임 */
+        }
+        .glossary-card {
+            background-color: rgba(255, 255, 255, 0.95); /* 카드 배경을 더 불투명하게 */
+        }
+    </style>
+</head>
+<body class="font-sans antialiased text-gray-800 p-4 min-h-screen">
+
+    <!-- Global Container Wrapper: 배경 이미지가 비치도록 투명도를 조절하고 블러 효과 추가 --><div class="max-w-4xl mx-auto py-4 sm:py-8 lg:py-12 rounded-2xl shadow-2xl glossary-container relative">
+        
+        <!-- Home Link: 상단 좌측에 배치하고 index.html로 이동 --><a href="index.html" 
+           class="absolute top-4 left-4 sm:top-6 sm:left-6 
+                  bg-indigo-600 text-white font-semibold 
+                  px-4 py-2 rounded-xl shadow-lg 
+                  hover:bg-indigo-700 transition duration-300 transform hover:scale-105 
+                  flex items-center space-x-1 z-10 text-sm sm:text-base">
+            <!-- Home 아이콘 (SVG) --><svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                <path d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z" />
+            </svg>
+            <span>Home</span>
+        </a>
+        
+        <!-- Header Section --><header class="text-center mb-8 sm:mb-12 pt-4 px-4">
+            <h1 class="text-4xl sm:text-5xl font-extrabold text-indigo-800 mb-2">
+                지식 탐험: 주요 용어사전 
+            </h1>
+            <p class="text-lg text-gray-600">
+                비즈니스, 기술, 사회 트렌드의 핵심 개념들을 아름답게 탐색하세요.
+            </p>
+        </header>
+
+        <!-- Filter and Search Controls --><div class="mb-8 p-4 sm:p-6 bg-white rounded-xl shadow-lg ring-1 ring-indigo-100 mx-4 glossary-card">
+            <div class="flex flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-4">
+                
+                <!-- Category Selector --><div class="flex-1">
+                    <label for="category-select" class="block text-sm font-medium text-gray-700 mb-1">분류 선택</label>
+                    <select id="category-select" onchange="filterGlossary()" 
+                            class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-lg shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm transition duration-150 ease-in-out">
+                        <option value="All">전체 분류</option>
+                        <!-- Options will be populated by JavaScript --></select>
+                </div>
+
+                <!-- Search Input --><div class="flex-1">
+                    <label for="search-input" class="block text-sm font-medium text-gray-700 mb-1">용어/정의 검색</label>
+                    <input type="text" id="search-input" placeholder="용어 또는 정의를 검색하세요 (예: 핀테크, AI)"
+                        oninput="filterGlossary()" 
+                        class="mt-1 block w-full py-2 px-3 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm transition duration-150 ease-in-out">
+                </div>
+            </div>
+        </div>
+
+        <!-- Glossary List Container --><div id="glossary-list" class="space-y-4 px-4">
+            <!-- Terms will be injected here by JavaScript --></div>
+
+        <!-- No Results Message --><div id="no-results" class="text-center p-10 bg-white rounded-xl shadow-md mt-8 mx-4 glossary-card" style="display: none;">
+            <p class="text-xl font-medium text-indigo-600 mb-2">검색 결과가 없습니다.</p>
+            <p class="text-gray-500">선택하신 분류나 검색어로 다시 시도해 보세요.</p>
+        </div>
+    </div>
+
+    <script>
+        // 용어 데이터를 JSON 형식으로 저장 (분류 정보 추가)
+        const glossaryData = [
+            { term: "Fintech (핀테크)", definition: "금융(Finance)과 기술(Technology)의 융복합(convergence). 더 나은 금융 서비스를 제공하기 위해 IT 기술을 접목하는 기업을 통칭하며, 인터넷 전문은행이나 혁신적인 금융 서비스를 제공하는 스타트업 등이 포함됨.", category: "금융/핀테크" },
+            { term: "Techfin (테크핀)", definition: "정보기술(IT)을 기반으로, 새로운 금융 서비스를 결합하는 것. (예시: 중국 알리바바).", category: "금융/핀테크" },
+            { term: "스마트금융 (Smart Financing)", definition: "4차 산업혁명시대의 금융산업이 첨단 정보기술을 활용한 핀테크(FinTech) 기술을 접목하여 진화하는 것.", category: "금융/핀테크" },
+            { term: "간편결제시스템", definition: "사용자들이 온라인 및 오프라인에서 신속하고 쉽게 결제할 수 있도록 지원하는 전자 결제 방식. 주요 기능은 빠른 결제, 보안(암호화 기술 및 인증 시스템), 편리함(카드 정보 저장, 생체 인식 로그인 등) 제공임.", category: "금융/핀테크" },
+            { term: "Robo-Adviser (로보어드바이저)", definition: "빅데이터와 인공지능 알고리즘 기반으로 고객에게 온라인으로 자산배분(asset allocation) 포트폴리오를 관리해주는 금융자문서비스. 인간의 주관적 판단이나 개입 없이 수학적 규칙이나 알고리즘을 이용하는 자산관리로봇임.", category: "금융/핀테크" },
+            { term: "InsurTech (인슈어테크)", definition: "보험(Insurance)과 기술(Technology)의 합성어. 기술을 활용하여 보험 산업의 효율성과 고객 경험을 향상시키는 것을 목표로 함.", category: "금융/핀테크" },
+            { term: "P2P 금융 (Peer-to-Peer Financing)", definition: "금융회사(금융기관)의 중개 없이 사적 개인 간에 금융거래가 체결될 수 있도록 중개하는 금융플랫폼. 인터넷·모바일 등으로 개인 간에 직접적으로 금융거래가 이루어지는 것을 말함.", category: "금융/핀테크" },
+            { term: "Open Banking (오픈뱅킹)", definition: "금융 데이터와 서비스를 안전하게 공유할 수 있도록 개방된 표준을 통해 금융 기관과 제3자 간의 협력을 촉진하는 시스템. 코어뱅킹 서비스(예금계좌 개설, 지급결제 서비스)만을 제공하고 제3자의 금융서비스를 리번들링하여 제공하는 금융플랫폼의 한 유형임.", category: "금융/핀테크" },
+            { term: "마이데이터 (MyData)", definition: "데이터 관리와 활용 권한이 정보주체인 개인에게 있음을 강조하는 개념. 개인의 활동으로 생성된 데이터에 대한 주권 개념. 은행, 카드, 보험, 증권, 통신 등에 흩어져 있는 개인의 금융정보를 일괄 수집하여 고객이 알기 쉽게 통합하여 제공하는 서비스임.", category: "금융/핀테크" },
+            { term: "데이터 (Data)", definition: "의미 있는 단순한 사실들의 집합.", category: "기술/IT" },
+            { term: "정보 (Information)", definition: "해석할 수 있는 의미와 가치를 가진 자료.", category: "기술/IT" },
+            { term: "빅데이터 (Big Data)", definition: "정형, 반정형, 비정형 데이터 모두를 포함하여, 일상적으로 비즈니스에 영향을 미치는 대용량 데이터. 기존 데이터베이스 관리 도구의 수집, 저장, 관리, 분석 역량을 넘어서는 대량의 데이터 세트.", category: "기술/IT" },
+            { term: "CPS (사이버 물리 시스템, Cyber Physical System)", definition: "컴퓨팅과 물리세계가 융합되어 자동화, 지능화되는 시스템. 현실세계와 디지털 사이버세계가 긴밀하게 결합된 시스템을 의미하며, IoT 기기를 이용해 센서 데이터를 클라우드상의 빅데이터로 수집·분석 후 AI가 현실세계에 결과를 피드백하는 것을 포함함.", category: "기술/IT" },
+            { term: "Digital Transformation (디지털 전환, DT, DX)", definition: "디지털과 물리적 요소들의 통합으로 비즈니스 모델을 변화하고 새롭게 정립하는 것. AI, Cloud, Data 등 디지털 기술을 기반으로 기업의 조직문화, 비즈니스모델 및 산업생태계를 혁신하고 새로운 가치를 창출하는 과정.", category: "기술/IT" },
+            { term: "Digilog (디지로그)", definition: "디지털 기술과 아날로그 감성의 공존. 디지털 기술에 아날로그 감성을 결합한 형태로 제공되는 제품 및 서비스를 뜻함.", category: "기술/IT" },
+            { term: "디지털 융합 (Digital Convergence)", definition: "하나의 기기나 서비스에 모든 IT 기술이 융복합되는 현상. 기능 통합, 타 산업으로의 확장, ICT 산업 내 융합, 유비쿼터스의 기반 등 다양한 유형이 있음.", category: "기술/IT" },
+            { term: "AI (인공지능, Artificial Intelligence)", definition: "컴퓨터 프로그램이 인간의 학습능력, 판단 능력, 추론, 지각 능력 등 인간의 지적인 능력을 구현한 기술 분야. 컴퓨터가 사람처럼 생각하고, 판단하게 만드는 기술.", category: "기술/IT" },
+            { term: "머신러닝 (Machine Learning, ML)", definition: "인간의 학습능력과 같은 기능을 컴퓨터에 부여하기 위한 기술. 데이터를 기반으로 패턴을 학습하고 예측을 수행함.", category: "기술/IT" },
+            { term: "딥러닝 (Deep Learning, DL)", definition: "머신러닝 방법 중, 신경망 기법을 적용하여, 빅데이터를 기반으로 스스로 학습하며, 판단하는 기술.", category: "기술/IT" },
+            { term: "생성형 AI (Generative AI)", definition: "챗GPT와 같이 몇 가지 원리로 자연어 문장을 만들어 내는 능력을 지칭하는 용어.", category: "기술/IT" },
+            { term: "ChatGPT (챗지피티)", definition: "실시간 딥러닝 기반 대화형 인공지능 챗봇 기술. 사용자와 주고 받는 대화에서 질문에 답하도록 설계된 자연 언어 처리 모델.", category: "기술/IT" },
+            { term: "Web 3.0", definition: "Read, Write, Execute가 가능하며, 공정, 자율을 지향. 탈중앙화(분산화) 기반 기술이며, 지능화된 웹이 원하는 콘텐츠를 제공하고 개인 맞춤화를 지원함.", category: "기술/IT" },
+            { term: "디지털 트윈 (Digital Twin)", definition: "라이프사이클 전반에 걸쳐 실시간 데이터를 사용하여 업데이트되고, 시뮬레이션, 머신 러닝, 추론을 통하여 의사결정을 돕는 시스템의 가상 모델. 컴퓨터에 현실 속 쌍둥이를 만들어 미리 예측 기능을 수행함.", category: "기술/IT" },
+            { term: "캄테크 (calm-tech)", definition: "AI 및 IoT 기술로 사람들이 인지하지 못한 상태에서 서비스를 제공하는 현상. 보이지 않는 배려 기술을 지칭함 (calm + tech 합성어).", category: "기술/IT" },
+            { term: "O2O (On-line to Off-line)", definition: "오프라인에서 온라인으로 전환을 유도하는 전략.", category: "기술/IT" },
+            { term: "O4O (On-line for Off-line)", definition: "온라인에 축적된 데이터 활용을 통해, 오프라인에서 새로운 비즈니스 모델로 적용하는 것.", category: "기술/IT" },
+            { term: "DW (Data Warehouse)", definition: "데이터의 추출, 변환, 통합, 요약된 데이터베이스. 데이터의 통합 저장소.", category: "기술/IT" },
+            { term: "DM (Data Mart)", definition: "소규모로 구축된 데이터웨어하우스.", category: "기술/IT" },
+            { term: "패킷 (packet)", definition: "정보 전송의 최소 단위.", category: "기술/IT" },
+            { term: "End user (엔드 유저)", definition: "컴퓨터 최종 사용자를 지칭하는 용어.", category: "기술/IT" },
+            { term: "형식지 (Explicit knowledge)", definition: "언어로 명시할 수 있는 객관적이고 형식적인 지식.", category: "경영/지식" },
+            { term: "암묵지 (tacit knowledge)", definition: "개인적인 경험에 의해 얻어지는 말로 표현하기 어려운 지식.", category: "경영/지식" },
+            { term: "CSR (기업의 사회적 책임)", definition: "기업 수익의 일부를 사회에 환원함으로써 기업의 책임을 대신한다는 개념. 자선활동과 같은 선행으로 취약계층의 요청에 대한 응답 형태로 진행됨.", category: "경영/지식" },
+            { term: "CSV (공유가치창출)", definition: "새로운 가치 창출을 통한 사회와 기업의 동반 성장을 유도. 기업과 이해관계자들이 공유가치를 창출하고 사회적 가치, 경제적 가치, 문화적 가치로 합리적 배분을 통한 균형 성장을 추구함.", category: "경영/지식" },
+            { term: "ESG", definition: "환경적 요인(Environmental), 사회적 책임(Social), (거버넌스의) 투명경영(Governance)을 의미. CSR과 CSV의 확장 개념으로, 더 이상 선택이 아닌 필수 요인으로 자리매김 중임.", category: "경영/지식" },
+            { term: "USR (대학사회책임)", definition: "교육/연구/봉사가 주 목적인 대학의 역할을 지역사회의 문제점 해결에 공헌하는 책임의식을 높이는 것을 의미.", category: "경영/지식" },
+            { term: "PPS (Pain Point Seeker)", definition: "아픈 곳을 계속 꼬집는 사람을 지칭. 상품이나 제품을 사용하는 과정에서 사람들이 느끼는 불평, 불만, 스트레스를 유발하는 문제(고충)를 찾는 행위.", category: "경영/지식" },
+            { term: "알파세대 (Alpha Generation)", definition: "2010년에서 2024년 사이에 태어난 세대. 순수 Digital Native 세대로 소비 지형을 바꿀 주역이며, 인류 역사상 가장 큰 규모로 추산됨.", category: "사회/트렌드" },
+            { term: "온택트 (Ontact)", definition: "온라인(Online)과 언택트(untact)의 합성어. 2021년 키워드로 팬데믹 시대 온라인을 통한 비대면 시장의 활성화를 뜻하는 개념.", category: "사회/트렌드" },
+            { term: "뉴트로 (New-tro)", definition: "현대풍에 걸맞은 복고풍을 뜻하는 용어. 옛날 감성에 현대적 아이템의 가치를 부여하는 현상.", category: "사회/트렌드" },
+            { term: "YOLO (욜로)", definition: "You Only Live Once. 미래에 대한 기대를 접고 이 순간을 사랑하려는 긍정적인 태도를 보임.", category: "사회/트렌드" },
+            { term: "소확행", definition: "소소하게 즐길 수 있는 행복을 추구하는 성향. 2018년의 대표 키워드였음.", category: "사회/트렌드" },
+            { term: "페르소나 (persona)", definition: "복수의 가면을 뜻하며, 양면적 소비 행태, 취향, 정체성의 추구를 반영함. 고객 세분화 정밀 분석에 활용됨. 2020년의 키워드.", category: "사회/트렌드" },
+            { term: "체리슈머 (Cherry-sumers)", definition: "한정된 자원을 극대화하기 위해 최대한 알뜰하게 소비하는 전략적 소비자. 무지출, 공동구매 전략을 구사하는 합리적 소비자.", category: "사회/트렌드" },
+            { term: "나노사회", definition: "극소 단위로 파편화된 사회 변화의 양상. 지속적인 개인화 추세가 팬데믹으로 인한 사회적 거리두기로 가속화된 현상.", category: "사회/트렌드" }
+        ];
+
+        const glossaryList = document.getElementById('glossary-list');
+        const searchInput = document.getElementById('search-input');
+        const categorySelect = document.getElementById('category-select');
+        const noResults = document.getElementById('no-results');
+
+        // 용어 목록을 화면에 렌더링하는 함수 (Tailwind 스타일 적용)
+        function renderGlossary(data) {
+            glossaryList.innerHTML = ''; 
+            if (data.length === 0) {
+                noResults.style.display = 'block';
+                return;
+            } else {
+                noResults.style.display = 'none';
+            }
+
+            data.forEach(item => {
+                const card = document.createElement('div');
+                // Tailwind CSS 클래스 적용: 카드 디자인, 그림자, 둥근 모서리, 호버 효과 등
+                card.className = 'bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition duration-300 border border-gray-100 glossary-card';
+                
+                card.innerHTML = `
+                    <details>
+                        <!-- Summary (용어와 분류) 스타일링 --><summary class="text-xl font-semibold text-indigo-700 cursor-pointer hover:text-indigo-800 transition duration-150 py-1">
+                            ${item.term} <span class="text-sm font-normal text-indigo-400 ml-2">(${item.category})</span>
+                        </summary>
+                        <!-- Definition (정의) 스타일링 --><div class="mt-3 pt-3 border-t border-gray-200 text-gray-600 leading-relaxed pl-5">
+                            ${item.definition}
+                        </div>
+                    </details>
+                `;
+                
+                glossaryList.appendChild(card);
+            });
+        }
+
+        // 분류 선택 목록을 설정하는 함수
+        function setupCategorySelector() {
+            const categories = [...new Set(glossaryData.map(item => item.category))];
+            
+            // 카테고리를 가나다순으로 정렬
+            categories.sort((a, b) => a.localeCompare(b, 'ko', { sensitivity: 'base' }));
+
+            categories.forEach(category => {
+                const option = document.createElement('option');
+                option.value = category;
+                option.textContent = category;
+                categorySelect.appendChild(option);
+            });
+        }
+
+        // 검색 및 필터링 기능 함수
+        function filterGlossary() {
+            const searchTerm = searchInput.value.toLowerCase().trim();
+            const selectedCategory = categorySelect.value;
+
+            const filteredData = glossaryData.filter(item => {
+                const termLower = item.term.toLowerCase();
+                const definitionLower = item.definition.toLowerCase();
+                
+                // 1. 분류 필터링
+                const categoryMatch = selectedCategory === "All" || item.category === selectedCategory;
+
+                // 2. 검색어 필터링
+                const searchMatch = termLower.includes(searchTerm) || definitionLower.includes(searchTerm);
+
+                // 두 조건이 모두 참인 경우에만 포함
+                return categoryMatch && searchMatch;
+            });
+
+            renderGlossary(filteredData);
+        }
+
+        // 페이지 로드 시 전체 용어 목록 렌더링 및 분류 선택기 설정
+        window.onload = () => {
+            setupCategorySelector();
+
+            // 용어를 가나다순으로 정렬 (한국어 기준)
+            const sortedData = glossaryData.sort((a, b) => a.term.localeCompare(b.term, 'ko', { sensitivity: 'base' }));
+            renderGlossary(sortedData);
+        };
+    </script>
+</body>
+</html>
