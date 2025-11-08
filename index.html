@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>금융일반 포트폴리오 | 김동현</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Noto Sans KR 폰트 -->
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        /* Noto Sans KR 폰트를 기본 폰트로 설정 */
+        body {
+            font-family: 'Noto Sans KR', sans-serif;
+        }
+        /* 스크롤을 부드럽게 */
+        html {
+            scroll-behavior: smooth;
+        }
+        /* 아코디언 콘텐츠의 자연스러운 열림/닫힘을 위한 (간단한) 트랜지션 */
+        .accordion-content {
+            transition: max-height 0.3s ease-out, padding 0.3s ease-out;
+            max-height: 0;
+            overflow: hidden;
+            padding-top: 0;
+            padding-bottom: 0;
+        }
+        .accordion-content.open {
+            max-height: 500px; /* 콘텐츠 길이에 맞춰 조절 가능 */
+            padding-top: 1.25rem; /* 20px */
+            padding-bottom: 1.25rem; /* 20px */
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800">
+
+    <!-- 헤더 및 네비게이션 -->
+    <header class="bg-white shadow-md fixed w-full z-10">
+        <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <!-- 로고/타이틀 -->
+            <a href="#" class="text-xl font-bold text-blue-700">금융일반 포트폴리오</a>
+
+            <!-- 데스크톱 메뉴 -->
+            <div class="hidden md:flex space-x-6">
+                <a href="#intro" class="text-gray-600 hover:text-blue-600 transition duration-300">소개</a>
+                <a href="#glossary" class="text-gray-600 hover:text-blue-600 transition duration-300">금융용어 사전</a>
+                <a href="#summary" class="text-gray-600 hover:text-blue-600 transition duration-300">교과핵심정리</a>
+                <!-- PDF 링크는 메뉴 상에서 유지 -->
+                <a href="수업자료.pdf" target="_blank" class="text-gray-600 hover:text-blue-600 transition duration-300">3.교과 내용 요약보기</a>
+                <a href="#reflections" class="text-gray-600 hover:text-blue-600 transition duration-300">수업 소감</a>
+            </div>
+
+            <!-- 모바일 메뉴 버튼 -->
+            <button id="menu-btn" class="md:hidden focus:outline-none">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
+                </svg>
+            </button>
+        </nav>
+
+        <!-- 모바일 메뉴 (숨겨진 상태) -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white shadow-lg">
+            <a href="#intro" class="block px-6 py-3 text-gray-600 hover:bg-blue-50">소개</a>
+            <a href="#glossary" class="block px-6 py-3 text-gray-600 hover:bg-blue-50">금융용어 사전</a>
+            <a href="#summary" class="block px-6 py-3 text-gray-600 hover:bg-blue-50">교과핵심정리</a>
+            <!-- PDF 링크는 메뉴 상에서 유지 -->
+            <a href="수업자료.pdf" target="_blank" class="block px-6 py-3 text-gray-600 hover:bg-blue-50">3.교과 내용 요약보기</a>
+            <a href="#reflections" class="block px-6 py-3 text-gray-600 hover:bg-blue-50">수업 소감</a>
+        </div>
+    </header>
+
+    <main>
+        <!-- 섹션 1: 소개 (Hero) -->
+        <section id="intro" class="bg-white pt-32 pb-24 lg:pt-40 lg:pb-32 text-center">
+            <div class="container mx-auto px-6">
+                <h1 class="text-4xl lg:text-5xl font-bold text-gray-800 mb-4">
+                    금융일반 포트폴리오
+                </h1>
+                <p class="text-xl lg:text-2xl text-blue-700 font-medium mb-6">
+                    부산대학교 교과연계형 과목 수강 기록
+                </p>
+                <p class="text-lg text-gray-600">
+                    내성고등학교 1학년 김동현
+                </p>
+                <p class="max-w-2xl mx-auto mt-4 text-gray-500">
+                    본 포트폴리오는 부산대학교에서 진행된 '금융일반' 교과연계형 수업을 통해 배운 지식과 경험을 정리한 기록입니다. 금융의 기본 개념부터 실제 적용 사례까지 학습한 내용을 체계화하였습니다.
+                </p>
+            </div>
+        </section>
+
+        <!-- 섹션 2: 금융용어 사전 -->
+        <section id="glossary" class="py-20 lg:py-24 bg-gray-50">
+            <div class="container mx-auto px-6 max-w-4xl">
+                <!-- 섹션 제목 -->
+                <h2 class="text-3xl font-bold text-center text-gray-800 mb-4">
+                    금융용어 사전
+                </h2>
+                <p class="text-lg text-center text-gray-500 mb-8">
+                    수업에서 배운 핵심 금융 용어를 정리합니다.
+                </p>
+
+                <!-- === '용어사전 보기' 버튼 추가 === -->
+                <div class="text-center mb-12">
+                    <a href="dict.html" class="inline-block bg-blue-600 text-white font-semibold py-3 px-6 rounded-lg shadow-md hover:bg-blue-700 transition duration-300 ease-in-out">
+                        용어사전 보기
+                    </a>
+                </div>
+                <!-- === 버튼 추가 완료 === -->
+
+                <!-- 용어 목록 -->
+                <div class="space-y-6">
+                    <!-- 용어 카드 1 (이제 이 부분은 '미리보기' 역할이 됩니다) -->
+                    <div class="bg-white rounded-lg shadow-lg p-6 transition-all duration-300 hover:shadow-xl">
+                        <h3 class="text-xl font-bold text-blue-700 mb-2">인플레이션 (Inflation)</h3>
+                        <p class="text-gray-700">
+                            [여기에 내용 입력] 예: 화폐 가치가 하락하여 물가 수준이 전반적으로 지속해서 상승하는 현상입니다. 수요 증가, 공급 부족, 통화량 팽창 등 다양한 원인으로 발생할 수 있습니다.
+                        </p>
+                    </div>
+
+                    <!-- 용어 카드 2 -->
+                    <div class="bg-white rounded-lg shadow-lg p-6 transition-all duration-300 hover:shadow-xl">
+                        <h3 class="text-xl font-bold text-blue-700 mb-2">복리 (Compound Interest)</h3>
+                        <p class="text-gray-700">
+                            [여기에 내용 입력] 예: 원금에 대해서만 이자가 붙는 단리와 달리, '이자에 이자가 붙는' 방식입니다. 투자 기간이 길어질수록 자산이 기하급수적으로 늘어나는 효과가 있습니다.
+                        </p>
+                    </div>
+
+                    <!-- 용어 카드 3 -->
+                    <div class="bg-white rounded-lg shadow-lg p-6 transition-all duration-300 hover:shadow-xl">
+                        <h3 class="text-xl font-bold text-blue-700 mb-2">주식 (Stock)</h3>
+                        <p class="text-gray-700">
+                            [여기에 내용 입력] 예: 주식회사의 자본을 이루는 단위이자, 그 소유권을 나타내는 증서입니다. 주주는 주식 보유 지분에 따라 의결권, 이익 배당 청구권 등을 가집니다.
+                        </p>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- 섹션 3: 교과핵심정리 -->
+        <section id="summary" class="py-20 lg:py-24 bg-blue-50">
+            <div class="container mx-auto px-6 max-w-4xl">
+                <!-- 섹션 제목 -->
+                <h2 class="text-3xl font-bold text-center text-gray-800 mb-4">
+                    교과핵심정리
+                </h2>
+                <p class="text-lg text-center text-gray-500 mb-12">
+                    '금융일반' 과목의 주요 학습 내용을 요약합니다.
+                </p>
+
+                <!-- 아코디언 (Accordion) -->
+                <div class="space-y-4">
+
+                    <!-- 아코디언 아이템 1 -->
+                    <div class="bg-white rounded-lg shadow-md overflow-hidden">
+                        <button class="accordion-toggle flex justify-between items-center w-full p-5 text-left font-semibold text-lg text-gray-700 hover:bg-gray-100 focus:outline-none">
+                            <span>1. 금융의 이해와 중요성</span>
+                            <span class="accordion-icon text-blue-600 text-2xl font-light">+</span>
+                        </button>
+                        <div class="accordion-content px-5 text-gray-600">
+                            <p>[여기에 1단원 핵심 내용 입력] 예: 금융의 정의, 기능(자금 중개, 위험 관리 등), 금융 시장의 종류(직접/간접, 단기/장기), 그리고 금융이 개인과 국가 경제에 미치는 영향에 대해 학습했습니다.</p>
+                        </div>
+                    </div>
+
+                    <!-- 아코디언 아이템 2 -->
+                    <div class="bg-white rounded-lg shadow-md overflow-hidden">
+                        <button class="accordion-toggle flex justify-between items-center w-full p-5 text-left font-semibold text-lg text-gray-700 hover:bg-gray-100 focus:outline-none">
+                            <span>2. 개인 재무 관리와 신용</span>
+                            <span class="accordion-icon text-blue-600 text-2xl font-light">+</span>
+                        </button>
+                        <div class="accordion-content px-5 text-gray-600">
+                            <p>[여기에 2단원 핵심 내용 입력] 예: 합리적인 예산 수립 방법, 저축과 투자의 차이점, 생애주기별 재무 설계의 필요성을 배웠습니다. 또한 신용 점수의 중요성과 관리 방법에 대해 학습했습니다.</p>
+                        </div>
+                    </div>
+
+                    <!-- 아코디언 아이템 3 -->
+                    <div class="bg-white rounded-lg shadow-md overflow-hidden">
+                        <button class="accordion-toggle flex justify-between items-center w-full p-5 text-left font-semibold text-lg text-gray-700 hover:bg-gray-100 focus:outline-none">
+                            <span>3. 금융 상품의 종류와 특징</span>
+                            <span class="accordion-icon text-blue-600 text-2xl font-light">+</span>
+                        </button>
+                        <div class="accordion-content px-5 text-gray-600">
+                            <p>[여기에 3단원 핵심 내용 입력] 예: 은행의 예금/적금 상품, 증권사의 주식/채권/펀드, 보험사의 보장성/저축성 보험 등 다양한 금융 상품의 특징과 위험-수익 관계를 비교 분석했습니다.</p>
+                        </div>
+                    </div>
+
+                    <!-- 아코디언 아이템 4 -->
+                    <div class="bg-white rounded-lg shadow-md overflow-hidden">
+                        <button class="accordion-toggle flex justify-between items-center w-full p-5 text-left font-semibold text-lg text-gray-700 hover:bg-gray-100 focus:outline-none">
+                            <span>4. 미래 금융 트렌드 (핀테크)</span>
+                            <span class="accordion-icon text-blue-600 text-2xl font-light">+</span>
+                        </button>
+                        <div class="accordion-content px-5 text-gray-600">
+                            <p>[여기에 4단원 핵심 내용 입력] 예: 핀테크(FinTech)가 전통적인 금융 산업을 어떻게 변화시키고 있는지, 간편 결제, 인터넷 전문 은행, P2P 대출, 디지털 자산 등의 개념과 최신 동향을 살펴보았습니다.</p>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+        </section>
+
+        <!-- 섹션 4: 교과 내용 요약보기 (PDF 링크) -->
+        <section id="pdf-link" class="py-16 lg:py-20 bg-white">
+            <div class="container mx-auto px-6 max-w-4xl text-center">
+                <h2 class="text-2xl font-bold text-gray-800 mb-6">3. 교과 내용 요약보기</h2>
+                <p class="text-gray-600 mb-6">
+                    수업 시간 동안 배운 내용의 핵심 요약 자료를 PDF 파일로 정리했습니다.
+                </p>
+                <a href="수업자료.pdf" target="_blank" class="inline-block bg-red-600 text-white font-semibold py-3 px-6 rounded-lg shadow-xl transform transition duration-300 hover:bg-red-700 hover:scale-105">
+                    보기
+                </a>
+            </div>
+        </section>
+        
+        <!-- 섹션 5: 수업 소감 -->
+        <section id="reflections" class="py-20 lg:py-24 bg-white">
+            <div class="container mx-auto px-6 max-w-4xl">
+                <!-- 섹션 제목 -->
+                <h2 class="text-3xl font-bold text-center text-gray-800 mb-4">
+                    수업 소감
+                </h2>
+                <p class="text-lg text-center text-gray-500 mb-12">
+                    '금융일반' 수업을 마치며
+                </p>
+
+                <!-- 소감 내용 -->
+                <div class="bg-gray-50 rounded-lg shadow-inner p-8">
+                    <p class="text-gray-700 leading-relaxed">
+                        부산대학교에서 진행된 '금융일반' 수업은 나에게 의미있는 경험이 되었다. 이전에는 막연하게만 생각했던 금융 분야에 대해 실질적인 지식과 핵심 개념들을 배울 수 있었다. 특히 경제 원리부터 시작해, 개인이 자산을 어떻게 관리하고 투자해야 하는지까지 폭넓게 이해하게 되었다. 이처럼 실생활에 바로 적용 가능한 지식을 얻으면서 금융을 바라보는 시야가 크게 넓어졌다. 이 경험은 앞으로 진로를 선택하고 미래를 계획하는 데 많은 도움이 될 것이라고 확신했다.
+                    </p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- 푸터 -->
+    <footer class="bg-gray-800 text-gray-300 py-10 text-center">
+        <div class="container mx-auto px-6">
+            <p class="text-sm">
+                © 2025. 김동현. All rights reserved.
+            </p>
+            <p class="text-xs mt-2 text-gray-400">
+                내성고등학교 1학년 | 부산대학교 연계 '금융일반' 포트폴리오
+            </p>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        // 모바일 메뉴 토글
+        const menuBtn = document.getElementById('menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        menuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // 아코디언 토글
+        const accordionToggles = document.querySelectorAll('.accordion-toggle');
+
+        accordionToggles.forEach(toggle => {
+            toggle.addEventListener('click', () => {
+                const content = toggle.nextElementSibling;
+                const icon = toggle.querySelector('.accordion-icon');
+
+                // 콘텐츠 열기/닫기
+                content.classList.toggle('open');
+
+                // 아이콘 변경
+                if (content.classList.contains('open')) {
+                    icon.textContent = '−'; // 닫기 아이콘
+                } else {
+                    icon.textContent = '+'; // 열기 아이콘
+                }
+
+                // (선택적) 다른 열린 아코디언 닫기
+                accordionToggles.forEach(otherToggle => {
+                    if (otherToggle !== toggle) {
+                        const otherContent = otherToggle.nextElementSibling;
+                        const otherIcon = otherToggle.querySelector('.accordion-icon');
+                        otherContent.classList.remove('open');
+                        otherIcon.textContent = '+';
+                    }
+                });
+            });
+        });
+    </script>
+
+</body>
+</html>
